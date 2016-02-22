@@ -3,24 +3,19 @@
 	<head>
 		<title>Страница со ссылками</title>
 	</head>
+
 	<body>
 	<div>
 		<h1><center><a href="/">Страница с ссылками</a></center></h1>
 	</div>
 
-	{{ posts }}
-
-	<div>
-		<h2><a href="">Новость первая</a></h2>
-		<p>Краткое содержание новости</p>
-		<p>Опубликовано: 15.02.2016, 19:38</p>
-	</div>
-
-	<div>
-		<h2><a href="">Новость вторая</a></h2>
-		<p>Краткое содержание новости</p>
-		<p>Опубликовано: 15.02.2016, 19:39</p>
-	</div>
+	{% for post in posts %}
+		<div>
+			<p>published: {{ post.published_date }}</p>
+			<h1><a href="">{{ post.title }}</a></h1>
+			<p>{{ post.text|linebreaks }}</p>
+		</div>
+	{% endfor %}
 
 	</body>
 </html>
